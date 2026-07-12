@@ -31,7 +31,7 @@ body{
     url("PinkGradient.jpg");
     background-size:cover;
     background-position:center;
-    background-attachment:fixed;
+    background-repeat:no-repeat;
 }
 
 
@@ -73,6 +73,22 @@ nav a{
     text-decoration:none;
     color:#8d3268;
     font-weight:500;
+}
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    font-size:30px;
+
+    color:#8d3268;
+
+    cursor:pointer;
+
 }
 
 .hero{
@@ -333,8 +349,13 @@ footer{
 
 @media(max-width:768px){
 
+body{
 
-/* Navigation */
+    background-size:auto 100%;
+
+    background-position:center top;
+
+}
 
 nav{
 
@@ -354,9 +375,40 @@ nav{
 }
 
 
+.menu-toggle{
+
+    display:block;
+
+}
+
+
+nav{
+
+    flex-wrap:wrap;
+
+}
+
+
 nav ul{
 
     display:none;
+
+    width:100%;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    gap:20px;
+
+    padding-top:20px;
+
+}
+
+
+nav ul.active{
+
+    display:flex;
 
 }
 
@@ -378,6 +430,11 @@ nav ul{
 
 }
 
+.hero-bg{
+
+    background-position:center center;
+
+}
 
 .hero-content img{
 
@@ -510,16 +567,32 @@ section{
 </head>
 <body>
 <nav>
+
 <img src="FGLogo.png" class="logo">
-<ul>
+
+
+<button class="menu-toggle" onclick="toggleMenu()">
+☰
+</button>
+
+
+<ul id="nav-menu">
 
 <li><a href="#about">About</a></li>
+
 <li><a href="#classes">Classes</a></li>
+
 <li><a href="#prices">Prices</a></li>
+
 <li><a href="#schedule">Schedule</a></li>
+
 <li><a href="#gallery">Gallery</a></li>
+
 <li><a href="#contact">Book Trial</a></li>
+
 </ul>
+
+
 </nav>
 
 <section class="hero">
@@ -774,6 +847,18 @@ function closeImage(){
 
 </script>
 
+
+    <script>
+
+function toggleMenu(){
+
+    document
+    .getElementById("nav-menu")
+    .classList.toggle("active");
+
+}
+
+</script>
 </body>
 
 </html>
